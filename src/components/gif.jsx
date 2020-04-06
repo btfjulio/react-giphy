@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
 class Gif extends Component {
+  handleClick = (event) => {
+    this.props.onClick(event.target.src);
+  } 
   render() {
-    const src = `https://plugcitarios.com/blog/wp-content/uploads/2015/03/Dragon-Ball-Z-Animated-GIF-${this.props.id}.gif`;
-    return <img src={src} alt="" className="gif" />;
+    return <img key={this.props.id} src={this.props.url} onClick={this.handleClick} alt="" className="gif" />;
   }
 }
 
